@@ -26,19 +26,29 @@ void findOdd(ull start, ull end){
     }
 }
 
+void threadFunction(int x){
+    while(x-- > 0){
+        cout << x << endl;
+    }
+}
+
 int main(){
     ull start = 0, end = 1900000000;
     auto startTime = high_resolution_clock::now();
 
     //1. create thread using function pointer 
-    thread t1(findEven, start, end);
-    thread t2(findOdd, start, end);
+    // thread t1(findEven, start, end);
+    // thread t2(findOdd, start, end);
 
     //2. create thread using lambda function    
-    
+    thread t1([](int x){
+        while(x-- > 0){
+            cout << x << endl;
+        }
+    }, 10);
 
     t1.join();
-    t2.join();
+    // t2.join();
 
     // findEven(start, end);
     // findOdd(start, end);
