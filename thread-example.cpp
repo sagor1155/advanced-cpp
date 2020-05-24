@@ -15,6 +15,7 @@ void findEven(ull start, ull end){
         if((i%2) == 0){
             evenSum += i;
         }
+        
     }
 }
 
@@ -23,6 +24,7 @@ void findOdd(ull start, ull end){
         if((i%2) != 0){
             oddSum += i;
         }
+        
     }
 }
 
@@ -32,20 +34,36 @@ void threadFunction(int x){
     }
 }
 
+class Base{
+    public:
+        static void run(int x){
+            while(x-- > 0){
+                cout << x << endl;
+            }
+        }
+
+};
+
 int main(){
-    ull start = 0, end = 1900000000;
+    ull start = 0, end=100000, end2 = 1900000000;
     auto startTime = high_resolution_clock::now();
 
-    //1. create thread using function pointer 
+    // 1. create thread using function pointer 
     // thread t1(findEven, start, end);
     // thread t2(findOdd, start, end);
 
-    //2. create thread using lambda function    
-    thread t1([](int x){
-        while(x-- > 0){
-            cout << x << endl;
-        }
-    }, 10);
+    // 2. create thread using lambda function    
+    // thread t1([](int x){
+    //     while(x-- > 0){
+    //         cout << x << endl;
+    //     }
+    // }, 10);
+
+    // 3. create thread using member function 
+    Base b;
+    // thread t1(&Base::run, &b, 10);  //for non-static member u need to pass object 
+    thread t1(&Base::run, 10);  //for static member u don't need to pass object
+
 
     t1.join();
     // t2.join();
@@ -54,6 +72,6 @@ int main(){
     // findOdd(start, end);
     auto endTime = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(endTime-startTime);
-    cout << "duration: " << duration.count()/1000000 << endl;
+    cout << "duration: " << duration.count()/1000000 << " sec" << endl;
     
 }
