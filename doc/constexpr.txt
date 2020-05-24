@@ -1,0 +1,25 @@
+
+"Given compile time input, the constant expression can compute the result."
+
+Example-1:
+constexpr int add(int a, int b)
+{
+    return a + b;
+}
+static constexpr int val = add(3, 4);
+
+As a and b are known at compile time, we have everything we need to compute the result.
+
+Example-2:
+int add_vectors_size(const std::vector<int> & a, const std::vector<int> & b)
+{
+  return a.size() + b.size()
+}
+
+We can't use constexpr in the above function as we don't know the size of vector 
+at compile time. 
+
+
+
+REFERENCE: 
+1. https://blog.quasardb.net/2016/11/22/demystifying-constexpr
