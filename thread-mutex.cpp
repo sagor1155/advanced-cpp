@@ -37,7 +37,7 @@ using namespace std::chrono;
 std::mutex m1, m2;
 int X=0, Y=0;
 
-void donSomeWorkForSeconds(void){
+void doSomeWorkForSeconds(void){
     std::this_thread::sleep_for(std::chrono::seconds(1));
 }
 
@@ -47,7 +47,7 @@ void incrementXY(int& XorY, std::mutex& m, const char* desc){
         XorY++;
         cout << desc << XorY << endl;
         m.unlock();
-        donSomeWorkForSeconds();
+        doSomeWorkForSeconds();
     }
 }
 
