@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BUILDCMD='g++ -std=c++11 -pthread -o a thread-timed-mutex.cpp'
+BUILDCMD='g++ -std=c++11 -pthread -o a thread-recursive-mutex.cpp'
 OBJFILE='a'
 
 RED='\033[0;31m'
