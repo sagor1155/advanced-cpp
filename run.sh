@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PNAME="smart-pointer/shared-pointer.cpp"
+PNAME="smart-pointer/weak-pointer.cpp"
 BUILDCMD="g++ -std=c++14 -pthread -o a ${PNAME}"
 OBJFILE='a'
 
