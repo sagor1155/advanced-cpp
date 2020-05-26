@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BUILDCMD='g++ -std=c++11 -pthread -o a thread-condition-variable.cpp'
+BUILDCMD='g++ -std=c++14 -pthread -o a smart-pointer/unique-pointer.cpp'
 OBJFILE='a'
 
 RED='\033[0;31m'
