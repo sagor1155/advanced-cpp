@@ -1,6 +1,7 @@
 #!/bin/bash
 
-BUILDCMD='g++ -std=c++14 -pthread -o a smart-pointer/unique-pointer.cpp'
+PNAME="smart-pointer/shared-pointer.cpp"
+BUILDCMD="g++ -std=c++14 -pthread -o a ${PNAME}"
 OBJFILE='a'
 
 RED='\033[0;31m'
@@ -15,7 +16,7 @@ echo -e "Removing object file"
 sudo rm ${OBJFILE}
 
 echo -e "${BLUE}-----------------------------------"
-echo -e "Compiling the program"
+echo -e "Compiling the program: ${PNAME}"
 echo -e "-----------------------------------${NC}"
 echo -e "Build Command: ${LCYAN}${BUILDCMD}${NC}"
 echo -e "${BLUE}-----------------------------------${NC}"
@@ -23,16 +24,14 @@ echo -e "${BLUE}-----------------------------------${NC}"
 eval "${BUILDCMD}"
 
 echo -e "${BLUE}-----------------------------------"
-echo -e "Executing the program${NC}"
+echo -e "Executing the program: ${PNAME}${NC}"
 echo -e "${YELLOW}-----------------------------------"
 echo -e "Program started"
-echo -e "-----------------------------------${NC}"
+echo -e "-----------------------------------${NC}${LCYAN}"
 
-echo -e "${LCYAN}"
 ./${OBJFILE}
-echo -e "${NC}"
 
-echo -e "${YELLOW}-----------------------------------"
+echo -e "${NC}${YELLOW}-----------------------------------"
 echo -e "Program Ended"
 echo -e "-----------------------------------${NC}"
 echo -e "${NC}"
