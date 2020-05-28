@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PNAME="design-pattern/factory.cpp"
+PNAME="design-pattern/abstract-factory.cpp"
 BUILDCMD="g++ -std=c++14 -pthread -o a ${PNAME}"
 OBJFILE='a'
 
