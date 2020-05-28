@@ -1,5 +1,5 @@
-
-"Given compile time input, the constant expression can compute the result."
+ 
+1. "Given compile time input, the constant expression can compute the result."
 
 Example-1:
 constexpr int add(int a, int b)
@@ -9,7 +9,7 @@ constexpr int add(int a, int b)
 static constexpr int val = add(3, 4);
 
 As a and b are known at compile time, we have everything we need to compute the result.
-
+ 
 Example-2:
 int add_vectors_size(const std::vector<int> & a, const std::vector<int> & b)
 {
@@ -19,7 +19,16 @@ int add_vectors_size(const std::vector<int> & a, const std::vector<int> & b)
 We can't use constexpr in the above function as we don't know the size of vector 
 at compile time. 
 
+2. A constexpr function is one whose return value is computable at compile time. 
+When its arguments are constexpr values, a constexpr function produces a compile-time constant. 
+When called with non-constexpr arguments, or when its value isn't required at compile time, 
+it produces a value at run time like a regular function. (This dual behavior saves you from 
+having to write constexpr and non-constexpr versions of the same function.)
+
+3. A constexpr function or constructor is implicitly inline.
 
 
 REFERENCE: 
 1. https://blog.quasardb.net/2016/11/22/demystifying-constexpr
+2. https://docs.microsoft.com/en-us/cpp/cpp/constexpr-cpp?view=vs-2019
+

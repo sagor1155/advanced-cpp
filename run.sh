@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PNAME="map-example.cpp"
+PNAME="design-pattern/factory.cpp"
 BUILDCMD="g++ -std=c++14 -pthread -o a ${PNAME}"
 OBJFILE='a'
 
